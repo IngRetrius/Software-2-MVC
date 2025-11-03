@@ -1,0 +1,95 @@
+/**
+ * RESPONSIVE (responsive.css)
+ * Media queries adicionales y ajustes responsivos
+ */
+
+/* ===============================================
+   MÓVIL (< 480px)
+   =============================================== */
+@media (max-width: 479px) {
+  .app-header {
+    padding: 12px 16px;
+  }
+
+  .app-title {
+    font-size: var(--text-base);
+  }
+
+  .btn-new {
+    font-size: var(--text-xs);
+    padding: 6px 10px;
+  }
+
+  .app-subtitle {
+    padding: 6px 16px 16px;
+    font-size: var(--text-xs);
+  }
+
+  .tabs-container {
+    padding: 0 16px;
+  }
+
+  .tab-btn {
+    font-size: var(--text-xs);
+    padding: 8px 12px;
+  }
+
+  .toolbar {
+    padding: 8px 16px;
+  }
+
+  .tasks-table-container {
+    padding: 0 16px;
+  }
+
+  /* Ocultar columnas no esenciales en móvil */
+  .col-status,
+  .col-priority,
+  .col-description {
+    display: none;
+  }
+
+  .col-date {
+    font-size: var(--text-xs);
+  }
+}
+
+/* ===============================================
+   PREFERENCIAS DEL USUARIO
+   =============================================== */
+
+/* Reducir animaciones */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+/* ===============================================
+   IMPRESIÓN
+   =============================================== */
+@media print {
+  .app-header .header-right,
+  .tabs-container,
+  .toolbar,
+  .task-actions,
+  .modal {
+    display: none !important;
+  }
+
+  .app-container {
+    max-width: 100%;
+  }
+
+  .tasks-table tbody tr {
+    page-break-inside: avoid;
+  }
+
+  body {
+    background: white;
+  }
+}

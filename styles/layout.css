@@ -1,0 +1,273 @@
+/**
+ * LAYOUT (layout.css)
+ * Estructura general, header, tabla, toolbar
+ */
+
+/* ===============================================
+   CONTENEDOR PRINCIPAL
+   =============================================== */
+#root {
+  width: 100%;
+  min-height: 100vh;
+}
+
+.app-container {
+  width: 100%;
+  max-width: 1400px;
+  margin: 0 auto;
+  background-color: white;
+  min-height: 100vh;
+}
+
+/* ===============================================
+   HEADER
+   =============================================== */
+.app-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 16px 48px;
+  border-bottom: 1px solid var(--color-gray-200);
+}
+
+.header-left {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.app-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 32px;
+  color: var(--color-gray-700);
+}
+
+.app-title {
+  font-size: var(--text-xl);
+  font-weight: 600;
+  color: var(--color-gray-900);
+  margin: 0;
+}
+
+.header-right {
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+}
+
+/* ===============================================
+   SUBTITLE
+   =============================================== */
+.app-subtitle {
+  padding: 8px 48px 24px;
+  font-size: var(--text-sm);
+  color: var(--color-gray-600);
+  margin: 0;
+}
+
+/* ===============================================
+   TABS CONTAINER
+   =============================================== */
+.tabs-container {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  padding: 0 48px;
+  border-bottom: 1px solid var(--color-gray-200);
+}
+
+/* ===============================================
+   TOOLBAR
+   =============================================== */
+.toolbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 12px 48px;
+  border-bottom: 1px solid var(--color-gray-200);
+}
+
+.toolbar-left {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+/* ===============================================
+   TABLA DE TAREAS
+   =============================================== */
+.tasks-table-container {
+  padding: 0 48px;
+  overflow-x: auto;
+}
+
+.tasks-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: var(--text-sm);
+}
+
+/* Thead */
+.tasks-table thead {
+  border-bottom: 1px solid var(--color-gray-200);
+}
+
+.tasks-table thead th {
+  padding: 12px 16px;
+  text-align: left;
+  font-size: var(--text-xs);
+  font-weight: 600;
+  color: var(--color-gray-600);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+/* Columnas específicas */
+.col-checkbox {
+  width: 40px;
+  padding-left: 8px !important;
+}
+
+.col-name {
+  width: 200px;
+  min-width: 150px;
+}
+
+.col-status {
+  width: 140px;
+}
+
+.col-date {
+  width: 120px;
+}
+
+.col-priority {
+  width: 100px;
+}
+
+.col-description {
+  min-width: 200px;
+}
+
+.col-actions {
+  width: 80px;
+  text-align: right;
+}
+
+/* Tbody */
+.tasks-table tbody tr {
+  border-bottom: 1px solid var(--color-gray-100);
+  transition: background-color var(--transition);
+}
+
+.tasks-table tbody tr:hover {
+  background-color: var(--color-gray-50);
+}
+
+.tasks-table tbody td {
+  padding: 14px 16px;
+  vertical-align: middle;
+  color: var(--color-gray-900);
+}
+
+.tasks-table tbody td.col-checkbox {
+  padding-left: 8px;
+}
+
+/* Task name en tabla */
+.task-name {
+  font-weight: 500;
+  color: var(--color-gray-900);
+}
+
+.task-name.completed {
+  text-decoration: line-through;
+  color: var(--color-gray-500);
+}
+
+/* Due date */
+.task-date {
+  color: var(--color-gray-600);
+  font-size: var(--text-sm);
+}
+
+/* Description */
+.task-description {
+  color: var(--color-gray-600);
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  max-width: 300px;
+}
+
+/* Actions column */
+.task-actions {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 4px;
+  opacity: 0;
+  transition: opacity var(--transition);
+}
+
+.tasks-table tbody tr:hover .task-actions {
+  opacity: 1;
+}
+
+/* ===============================================
+   RESPONSIVIDAD DE LA TABLA
+   =============================================== */
+@media (max-width: 1024px) {
+  .app-header,
+  .app-subtitle,
+  .tabs-container,
+  .toolbar,
+  .tasks-table-container {
+    padding-left: 24px;
+    padding-right: 24px;
+  }
+
+  .col-description {
+    max-width: 200px;
+  }
+}
+
+@media (max-width: 768px) {
+  .app-header,
+  .app-subtitle,
+  .tabs-container,
+  .toolbar,
+  .tasks-table-container {
+    padding-left: 16px;
+    padding-right: 16px;
+  }
+
+  .app-title {
+    font-size: var(--text-lg);
+  }
+
+  .tabs-container {
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  .tasks-table {
+    font-size: var(--text-xs);
+  }
+
+  .col-name {
+    width: 150px;
+    min-width: 120px;
+  }
+
+  .col-description {
+    display: none;
+  }
+
+  .tasks-table tbody td {
+    padding: 12px 8px;
+  }
+}
